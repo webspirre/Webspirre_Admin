@@ -49,8 +49,6 @@ const initialFormData: Map = {
   shortDescription: "",
   longDescription: "",
   logoImageURL: "",
-  desktopSsURL: "",
-  mobileSsURL: "",
   desktopFpURL: "",
   mobileFpURL: "",
   date: new Date().toLocaleString("en-US", {
@@ -206,8 +204,6 @@ const Form: FC<{ handleLoading: () => void; loading?: boolean }> = ({
         shortDescription,
         longDescription,
         logoImageURL,
-        desktopSsURL,
-        mobileSsURL,
         desktopFpURL,
         mobileFpURL,
         categories,
@@ -226,8 +222,6 @@ const Form: FC<{ handleLoading: () => void; loading?: boolean }> = ({
             shortDescription,
             longDescription,
             logoImageURL,
-            desktopSsURL,
-            mobileSsURL,
             desktopFpURL,
             mobileFpURL,
             date,
@@ -260,7 +254,7 @@ const Form: FC<{ handleLoading: () => void; loading?: boolean }> = ({
 
   return (
     // <div>
-    <div className="p-4 rounded-[20px] w-full m-4 bg-white">
+    <div className="p-4 px-[100px] rounded-[20px] w-full  m-4 bg-white">
       <div className="border-b">
         <p className="py-2 border-b-4 border-black text-center w-fit px-6">
           Upload details
@@ -270,7 +264,7 @@ const Form: FC<{ handleLoading: () => void; loading?: boolean }> = ({
         onSubmit={addWebsiteHandler}
         // onSubmit={handleSubmit}
       >
-        <div className="grid grid-cols-2 gap-20 w-full text-slate-700">
+        <div className="grid grid-cols-2 gap-20 w-full text-slate-700 text-[14px] font-semibold">
           <div className=" ">
             <div className="w-full py-8">
               <label htmlFor="name">Name of website</label>
@@ -281,11 +275,13 @@ const Form: FC<{ handleLoading: () => void; loading?: boolean }> = ({
                 placeholder="Name"
                 onChange={handleChange}
                 // {...inputAttributes.name}
-                className="border-2 rounded-lg p-4 w-full"
+                className="border-2 rounded-lg p-4 mt-2 w-full"
               />
             </div>
             <div className="w-full py-8">
-              <label htmlFor="webURL">URL of website</label>
+              <label htmlFor="webURL" className="mb-2">
+                URL of website
+              </label>
 
               <input
                 // {...inputAttributes.webURL}
@@ -294,14 +290,14 @@ const Form: FC<{ handleLoading: () => void; loading?: boolean }> = ({
                 required
                 placeholder="Website URL"
                 onChange={handleChange}
-                className="border-2 rounded-lg p-4 w-full"
+                className="border-2 rounded-lg p-4 mt-2 w-full"
               />
             </div>
 
             {/*  Category Field*/}
 
-            <div className="w-full py-8">
-              <h2>Select a Category:</h2>
+            <div className="w-full py-8 ">
+              <h2 className="mb-2">Select a Category:</h2>
               <Select
                 value={selectedCategories}
                 name="categories"
@@ -312,10 +308,11 @@ const Form: FC<{ handleLoading: () => void; loading?: boolean }> = ({
                 styles={{
                   control: (provided) => ({
                     ...provided,
-                    border: "1px solid #ccc",
-                    borderRadius: "4px",
+                    border: "1px solid #",
+                    borderRadius: "8px",
                     height: "60px",
                     width: "100%", // Customize width as needed
+                    outline: "none", // Remove default outline
                   }),
                   option: (provided, state) => ({
                     ...provided,
@@ -339,7 +336,7 @@ const Form: FC<{ handleLoading: () => void; loading?: boolean }> = ({
             {/* PageType Field */}
 
             <div className="w-full py-8">
-              <h2>Select a PageType:</h2>
+              <h2 className="mb-2">Select a PageType:</h2>
               <Select
                 name="pageType"
                 value={selectedOption}
@@ -350,9 +347,9 @@ const Form: FC<{ handleLoading: () => void; loading?: boolean }> = ({
                   control: (provided) => ({
                     ...provided,
                     border: "1px solid #ccc",
-                    borderRadius: "4px",
+                    borderRadius: "8px",
                     height: "60px",
-                    width: "100%", // Customize width as needed
+                    width: "100%",
                   }),
                   option: (provided, state) => ({
                     ...provided,
@@ -377,7 +374,7 @@ const Form: FC<{ handleLoading: () => void; loading?: boolean }> = ({
                 placeholder="Short Description"
                 onChange={handleChange}
                 // {...inputAttributes.shortDescription}
-                className="border-2 rounded-lg p-4 w-full"
+                className="border-2 rounded-lg p-4 mt-2 w-full"
               />
             </div>
             <div className="w-full py-8">
@@ -388,7 +385,7 @@ const Form: FC<{ handleLoading: () => void; loading?: boolean }> = ({
                 placeholder="Long Description"
                 onChange={handleChange}
                 // {...inputAttributes.longDescription}
-                className="border-2 rounded-lg p-4 w-full"
+                className="border-2 rounded-lg mt-2 p-4 w-full"
               />
             </div>
           </div>
@@ -401,20 +398,7 @@ const Form: FC<{ handleLoading: () => void; loading?: boolean }> = ({
                 }
                 filename={"logoImageURL"}
               />
-              <FileUpload
-                label="Desktop screenshot"
-                onFileChange={(file) =>
-                  handleFileChange(file, "desktopSs", "desktopSsURL")
-                }
-                filename={"desktopSsURL"}
-              />
-              <FileUpload
-                label="Mobile screenshot"
-                onFileChange={(file) =>
-                  handleFileChange(file, "mobileSs", "mobileSsURL")
-                }
-                filename={"mobileSsURL"}
-              />
+
               <FileUpload
                 label="Desktop full page"
                 onFileChange={(file) =>
