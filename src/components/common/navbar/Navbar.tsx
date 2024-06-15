@@ -31,7 +31,7 @@ const Navbar: React.FC<NavProps> = ({ user }) => {
     <>
       <div className=" ">
         <div className="flex items-center border-b-2 border-[#BBBBBB]  bg-white">
-          <div className="flex w-[300px] pl-10   bg-white h-100px">
+          <div className="flex w-[350px] pl-10   bg-white h-100px">
             <Link href="/">
               <Image
                 height={60}
