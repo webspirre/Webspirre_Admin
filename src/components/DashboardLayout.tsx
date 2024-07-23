@@ -27,7 +27,7 @@ const DashboardLayout: React.FC<DashboardProps> = () => {
       <div className="flex ">
         <div className="w-[350px] min-h-screen px-6 bg-white ">
           <button
-            className={`flex gap-4 items-center mt-[60px]  px-4 py-4 text-[18px] mb-6 font-semibold ${
+            className={`flex gap-4 items-center mt-[200px]  px-4 py-4 text-[18px] mb-6 font-semibold ${
               showUpload ? "bg-[#F2F2F7] rounded-[12px] w-full" : ""
             }`}
             onClick={() => setShowUpload(true)}
@@ -41,8 +41,8 @@ const DashboardLayout: React.FC<DashboardProps> = () => {
             Upload
           </button>
           <button
-            className={`flex items-center gap-4 text-[18px] px-4 py-4 font-semibold pt-4 ${
-              !showUpload ? "bg-[#F2F2F7] rounded-[12px] w-full" : ""
+            className={`flex gap-4 items-center mt-[200px]  px-4 py-4 text-[18px] mb-6 font-semibold ${
+              showUpload ? "bg-[#F2F2F7] rounded-[12px] w-full" : ""
             }`}
             onClick={() => setShowUpload(false)}
           >
@@ -55,7 +55,7 @@ const DashboardLayout: React.FC<DashboardProps> = () => {
             Content
           </button>
         </div>
-        <div className="flex w-full pt-[2px] bg-[#ececec]">
+        <div className="flex w-full pt-[2px] mt-[100px] bg-[#ececec]">
           <div className="w-full pr-6">
             {showUpload ? (
               <Upload handleLoading={handleLoading} loading={loading} />
