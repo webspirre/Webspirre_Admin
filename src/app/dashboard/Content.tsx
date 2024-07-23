@@ -44,7 +44,7 @@ const Content: React.FC = () => {
   return (
     <div>
       <div className="p-4 px-[50px] rounded-[20px] w-full  m-4 bg-white">
-        <div className="flex text-[#888888] gap-4">
+        <div className="flex text-[#888888] text-[12px] gap-4">
           <div className="px-2 py-1 flex items-center border-2 border-[#C7C7C7] gap-4 rounded-full">
             <div className="border-2 border-[#C7C7C7] rounded-full w-4 h-4"></div>
             <p>Bulk action</p>
